@@ -1,20 +1,30 @@
 * {
   box-sizing: border-box;
   font-family: monospace;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
 }
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 div {
   display: flex;
   align-items: center;
+  background-color: lightcyan;
+  padding: 2rem;
 }
 button {
-  border-radius: 1 rem;
+  margin-left: 2rem;
 }
 main {
+  padding: 1rem;
+  flex-grow: 1;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  background-color: lightcoral;
 }
