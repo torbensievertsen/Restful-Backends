@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#red {
+  accent-color: red;
+  margin-right: 2rem;
+  background-color: red;
+}
+#green {
+  accent-color: green;
+  margin-right: 2rem;
+}
+#blue {
+  accent-color: blue;
+  margin-right: 2rem;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+Header {
+  padding: 5rem;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+main {
+  flex-grow: 1;
+}
+button {
+  margin-left: auto;
+}
