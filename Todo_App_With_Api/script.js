@@ -82,6 +82,7 @@ function renderTodos() {
     }
   });
 }
+
 function updateTodos(event) {
   event.target.todo.done = !event.target.todo.done;
   const updatedTodo = event.target.todo;
