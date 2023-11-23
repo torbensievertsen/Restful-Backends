@@ -27,4 +27,5 @@ main {
   justify-content: center;
   flex-direction: column;
   background-color: lightcoral;
+  background-image: url("https://source.unsplash.com/random/300×300");
 }

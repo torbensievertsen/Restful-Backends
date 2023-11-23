@@ -1,0 +1,74 @@
+#grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+}
+.personDiv {
+  margin: 1rem;
+  padding: 1rem 0;
+
+  border-radius: 2rem;
+  position: relative;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100% 22%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.125rem solid gray;
+  display: flex;
+  flex-direction: column;
+}
+body,
+html {
+  height: 100%;
+}
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+p {
+  text-align: center;
+  color: black;
+}
+.profilePic {
+  border-radius: 50%;
+  max-width: fit-content;
+}
+.deleteBtn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  border-radius: 50%;
+  background-color: black;
+  opacity: 0.5;
+  border: none;
+  color: white;
+  font-size: 2rem;
+}
+.connectBtn {
+  background-color: white;
+  color: blue;
+  border: 0.125rem solid blue;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.gridOverview {
+  border: 0.125rem solid black;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: white;
+}
+body {
+  background-color: lightgray;
+}
+
+.pendingCount {
+  border-radius: 1rem solid black;
+}
