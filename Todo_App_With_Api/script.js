@@ -17,10 +17,19 @@ loadTodosFromApi();
 
 function loadTodosFromApi() {
   fetch(API)
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Network response was not OK");
+      }
+    })
     .then((todosfromApi) => {
       todos = todosfromApi;
       renderTodos();
+    })
+    .catch((error) => {
+      alert(error.message);
     });
 }
 
@@ -47,10 +56,19 @@ function addTodo(event) {
     },
     body: JSON.stringify(newTodo),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Network response was not OK");
+      }
+    })
     .then((newTodoFromApi) => {
       todos.push(newTodoFromApi);
       renderTodos();
+    })
+    .catch((error) => {
+      alert(error.message);
     });
   inputText.value = "";
 }
@@ -93,9 +111,18 @@ function updateTodos(event) {
     },
     body: JSON.stringify(updatedTodo),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Network response was not OK");
+      }
+    })
     .then((updatedTodoFromApi) => {
       renderTodos();
+    })
+    .catch((error) => {
+      alert(error.message);
     });
 }
 
@@ -113,15 +140,33 @@ function changeFilter(event) {
 }
 
 function removeDoneToDoes() {
+  const deleteids = [];
   for (const todo of todos) {
     if (todo.done === true) {
-      fetch(API + "/" + todo.id, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then(() => {
-          loadTodosFromApi();
-        });
+      deleteids.push(removeformApi(todo.id));
     }
   }
+  Promise.all(deleteids).then((values) => {
+    if (values.indexOf(undefined) !== -1) {
+      console.log("tset");
+      loadTodosFromApi();
+    }
+  });
+}
+
+function removeformApi(id) {
+  return fetch(API + "/" + id, {
+    method: "DELETE",
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Network response was not OK");
+      }
+    })
+    .then(() => {})
+    .catch((error) => {
+      alert(error.message);
+    });
 }
